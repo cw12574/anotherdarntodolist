@@ -1,3 +1,4 @@
+
 <?php
 
 include "includes/config.php";
@@ -45,6 +46,8 @@ if (isset($_POST["addToDo"])) {
   <head>
     <?php getHeader(); ?>
     
+    <script src="jquery-3.6.0.min.js"></script>
+    
   </head>
   <body>
     <?php getHeader2(); ?>
@@ -69,9 +72,10 @@ if (isset($_POST["addToDo"])) {
                     foreach ($res1 as $todo) { 
                 ?>
                 
-                <div class="container col-lg-10 col-md-2 mb-1">
+                <div class="container">
+                  
                         <?php getToDo($todo); ?>
-                
+                       
                 </div>
                 
                   
@@ -80,17 +84,19 @@ if (isset($_POST["addToDo"])) {
                 ?>
                 
                
-                </form>
-                </div>
-
-                <div class="container col-lg-10 col-md-6 mb-2" style="margin-top:8px;">
-                    <div class="container input-group w-20">
+                
+                    <div class="container" style="">
             
                         <form action="" style="display: inline; background-color: transparent;" class="container" method="POST">
                         
                             <input type="text" class="form-control" name ="newtask" placeholder="New task" aria-label="New task" aria-describedby="basic-addon1" value="<?php if (isset($_POST["addToDo"])) {echo$_POST["title"];} ?>" required> 
 
                             <button type="submit" style="margin-top: 8px; " name="addToDo" class="btn btn-primary me-2">Add</button>
+
+                
+                
+
+                
 
                 </div>     
             
