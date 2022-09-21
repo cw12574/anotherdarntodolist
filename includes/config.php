@@ -125,8 +125,8 @@ function getToDo($todo)
 
     $output = 
     '
-        <div class="card-body" style="margin:8px">
-            <div class="form-check" >
+        <div class="card-body" style="margin-top:5px">
+            <div class="form-check" style="margin:0;padding:0" >
                 <form action ="action-handler.php" method="POST">
                 
                     <a href="done-todo.php?id='. $todo['id']. '" style="margin-right:5px;margin-left:auto;" class="btn btn-sm btn-outline-secondary">
