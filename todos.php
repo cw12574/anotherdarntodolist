@@ -66,7 +66,7 @@ if (isset($_POST["addToDo"])) {
   </head>
   <body>
     <?php getHeader2(); ?>
-    <div class="container-fluid">
+    <div class="container-fluid" style="padding-left:0">
         
         <div class="container-fluid">
             <?php 
@@ -87,7 +87,7 @@ if (isset($_POST["addToDo"])) {
                     foreach ($res1 as $todo) { 
                 ?>
                 
-                <div class="container-fluid">
+                <div class="container-fluid" style="padding-left:0">
                   
                         <?php getToDo($todo); ?>
                        
@@ -98,7 +98,7 @@ if (isset($_POST["addToDo"])) {
                 
                
                 
-                    <div class="container" style="">
+                    <div class="container" style="margin-left:0;padding-left:0">
             
                         <form action="" style="display: inline; background-color: transparent;" class="container-fluid" method="POST">
                         
