@@ -9,6 +9,10 @@ if (!isset($_SESSION["user_email"])) {
     die();
 }
 
+if (isset($_COOKIE['username'])) {
+  $user = $_COOKIE['username'];
+}
+
 $msg = "";
 
 if (isset($_POST["addToDo"])) {
@@ -28,7 +32,16 @@ if (isset($_POST["addToDo"])) {
     $sql = null;
   
     //Insert todo
-    $sql = "INSERT INTO todos(title, user_id) VALUES ('$title', '$user_id')";
+
+    $query = "SELECT MAX(ordernumber), id FROM todos";
+    $result = mysqli_query($conn, $query);
+
+    while ($row = mysqli_fetch_row($result)) {
+      $maxordernumber = '';
+      $maxordernumber = $row[0];
+    }
+    
+    $sql = "INSERT INTO todos(title, user_id, ordernumber) VALUES ('$title', '$user_id', '$maxordernumber'+1)";
     $res =mysqli_query($conn,$sql);
     if ($res) {
       $_POST["title"] = "";
@@ -38,6 +51,8 @@ if (isset($_POST["addToDo"])) {
     }
   
   }
+
+
 
 ?>
 
@@ -51,9 +66,9 @@ if (isset($_POST["addToDo"])) {
   </head>
   <body>
     <?php getHeader2(); ?>
-    <div class="container">
-        <h1 class="mb-3 text-center fw-bold">To Do List</h1>
-        <div class="container">
+    <div class="container-fluid">
+        
+        <div class="container-fluid">
             <?php 
                 //Get user id based on email
                 $sql = "SELECT id FROM users WHERE email='{$_SESSION["user_email"]}'";
@@ -66,19 +81,17 @@ if (isset($_POST["addToDo"])) {
                 } else {
                     $user_id = 0;
                 }
-                $sql1 = "SELECT * FROM todos WHERE user_id='{$user_id}' ORDER BY id ASC";
+                $sql1 = "SELECT * FROM todos WHERE user_id='{$user_id}' ORDER BY ordernumber ASC";
                 $res1 =  mysqli_query($conn, $sql1);
                 if (mysqli_num_rows($res1) > 0) {
                     foreach ($res1 as $todo) { 
                 ?>
                 
-                <div class="container">
+                <div class="container-fluid">
                   
                         <?php getToDo($todo); ?>
                        
-                </div>
-                
-                  
+                </div>                  
 
                 <?php } }
                 ?>
@@ -87,7 +100,7 @@ if (isset($_POST["addToDo"])) {
                 
                     <div class="container" style="">
             
-                        <form action="" style="display: inline; background-color: transparent;" class="container" method="POST">
+                        <form action="" style="display: inline; background-color: transparent;" class="container-fluid" method="POST">
                         
                             <input type="text" class="form-control" name ="newtask" placeholder="New task" aria-label="New task" aria-describedby="basic-addon1" value="<?php if (isset($_POST["addToDo"])) {echo$_POST["title"];} ?>" required> 
 

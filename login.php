@@ -15,6 +15,8 @@ if (isset($_POST["submit"])) {
     if (emailIsValid($email)) {
         if (checkLoginDetails($email, $password)){
             $_SESSION["user_email"] = $email;
+                setcookie("username", $email, time() + 60*60*24*365);
+                setcookie("password", $password, time() + 60*60*24*365);
             header("Location: todos.php");
             die();
         } else {  
