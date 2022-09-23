@@ -66,6 +66,7 @@ if (isset($_POST["addToDo"])) {
   </head>
   <body>
     <?php getHeader2(); ?>
+
     <div class="container-fluid" style="padding-left:0">
         
         <div class="container-fluid">
@@ -87,10 +88,11 @@ if (isset($_POST["addToDo"])) {
                     foreach ($res1 as $todo) { 
                 ?>
                 
-                <div class="container-fluid" style="padding-left:0">
-                  
+                <div class="row" style="padding-left:0;margin-bottom:5px">
+                  <div class="column">
                         <?php getToDo($todo); ?>
-                       
+                  
+                    </div>  
                 </div>                  
 
                 <?php } }

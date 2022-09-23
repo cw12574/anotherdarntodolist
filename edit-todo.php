@@ -29,6 +29,7 @@ if (isset($_POST["updatetodo"])) {
     $_POST["title"] = "";
     $_POST["desc"] = "";
     $msg = "<div class='alert alert-success'>Todo updated</div>";
+    header("Location: todos.php");
   } else {
     $msg = "<div class='alert alert-danger'>Todo failed to update</div>";
   }
