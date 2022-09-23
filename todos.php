@@ -106,7 +106,7 @@ if (isset($_POST["addToDo"])) {
                         
                             <input type="text" class="form-control" name ="newtask" placeholder="New task" aria-label="New task" aria-describedby="basic-addon1" value="<?php if (isset($_POST["addToDo"])) {echo$_POST["title"];} ?>" required> 
 
-                            <button type="submit" style="margin-top: 8px; " name="addToDo" class="btn btn-primary me-2">Add</button>
+                            <button type="submit" style="margin-top: 8px; margin-bottom:8px " name="addToDo" class="btn btn-primary me-2">Add</button>
 
                 
                 

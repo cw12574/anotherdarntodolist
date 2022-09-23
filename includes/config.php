@@ -91,7 +91,7 @@ function getHeader2()
 {
     $display = "d-none";
     if (isset($_SESSION["user_email"])) {
-        $display = "";
+        $display = "d-none d-sm-inline-flex";
     }
     
     $output = '<header class="py-3 mb-4 border-bottom bg-white">
