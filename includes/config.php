@@ -104,7 +104,7 @@ function getHeader2()
 
        
             <li class="nav-item '. $display .'"><a href="logout.php" class="nav-link bg-danger text-white">Logout</a></li>
-            <li class="nav-item '. $display .'"><a href="mailto:cw12574@my.bristol.ac.uk" class="nav-link bg-light text-black" style="margin-left:15px;">Email the creator with feedback (much appreciated)</a></li>
+            <li class="nav-item '. $display .'"><a href="mailto:cw12574@my.bristol.ac.uk" class="nav-link bg-light text-black" style="margin-left:15px;">Email creator with feedback (much appreciated)</a></li>
         </ul>
       
         </div>

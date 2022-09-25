@@ -59,6 +59,16 @@ if (isset($_POST["addToDo"])) {
 <!doctype html>
 <html lang="en">
   <head>
+        <!-- Google tag (gtag.js) -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKLVDZR9BT"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-JKLVDZR9BT');
+          </script>
+          
     <?php getHeader(); ?>
     <link rel="icon" href="images/favicon.ico" type="image/ico">
     <script src="jquery-3.6.0.min.js"></script>
