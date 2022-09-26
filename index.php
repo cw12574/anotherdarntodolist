@@ -4,10 +4,17 @@
 include "includes/config.php";
 session_start();
 
+if (isset($_COOKIE['username'])) {
+  $_SESSION["user_email"] = $_COOKIE['username'];
+}
+
 if (isset($_SESSION["user_email"])) {
     header("Location: todos.php"); 
     die();
 }
+
+
+
 ?>
 
 <!doctype html>
@@ -51,12 +58,12 @@ if (isset($_SESSION["user_email"])) {
               </div>
               <div class="checkbox mb-3">
                 <label>
-                  <input type="checkbox" value="remember-me"> Remember me (recommended, if you're the only person who uses this device)
+                  <input type="checkbox" name="checkbox" value="remember-me"> I agree to the <a href="terms.php"> terms of use </a>
                 </label>
               </div>
               <button name="submit" class="w-100 btn btn-lg btn-primary" type="submit">Continue</button>
-              <hr class="my-4">
-              <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+             
+              
             </form>
           </div>
         </div>

@@ -68,7 +68,7 @@ if (isset($_POST["addToDo"])) {
 
             gtag('config', 'G-JKLVDZR9BT');
           </script>
-          
+
     <?php getHeader(); ?>
     <link rel="icon" href="images/favicon.ico" type="image/ico">
     <script src="jquery-3.6.0.min.js"></script>
