@@ -36,7 +36,7 @@ if (isset($_GET["id"])) {
     }
   
 
-    $sql = "UPDATE todos SET ordernumber = ordernumber-1, date = CURRENT_TIMESTAMP WHERE ordernumber>'{$ordernumber}'";
+    $sql = "UPDATE todos SET ordernumber = ordernumber-1, date = CURRENT_TIMESTAMP WHERE ordernumber>'{$ordernumber}' AND user_id='{$user_id}'";
   
     $res = mysqli_query($conn,$sql);
 

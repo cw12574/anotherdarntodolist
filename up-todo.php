@@ -19,6 +19,19 @@ if (isset($_GET["id"])) {
 
 $msg = "";
 
+//Get user id based on email
+$sql = "SELECT id FROM users WHERE email='{$_SESSION["user_email"]}'";
+$res = mysqli_query($conn, $sql);
+$count = mysqli_num_rows($res);
+if ($count >0) {
+$row =mysqli_fetch_assoc($res);
+$user_id = $row["id"];
+
+
+} else {
+$user_id = 0;
+}
+
   // Update todo
 
 
@@ -31,7 +44,7 @@ $msg = "";
     $nextordernumber = $row[0]-1;
   }
 
-  $sql = "UPDATE todos SET ordernumber = (case when ordernumber='{$ordernumber}' then ordernumber-1 when ordernumber='{$nextordernumber}' then ordernumber+1 end), date = CURRENT_TIMESTAMP WHERE ordernumber='{$ordernumber}' or ordernumber='{$ordernumber}'-1";
+  $sql = "UPDATE todos SET ordernumber = (case when ordernumber='{$ordernumber}' then ordernumber-1 when ordernumber='{$nextordernumber}' then ordernumber+1 end), date = CURRENT_TIMESTAMP WHERE ordernumber='{$ordernumber}' and user_id='{$user_id}' or ordernumber='{$ordernumber}'-1 and user_id='{$user_id}'";
   
   $res = mysqli_query($conn,$sql);
 

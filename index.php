@@ -41,7 +41,7 @@ if (isset($_SESSION["user_email"])) {
         <div class="row align-items-center g-lg-5 py-5"> 
           <div class="col-lg-7 text-center text-lg-start">
             <h1 class="display-4 fw-bold lh-1 mb-5" >The most motivating way to get shit done.</h1>
-            <p class="col-lg-11 fs-4"> - A ToDo List, designed to increase motivation <br>
+            <p class="col-lg-11 fs-4"> - A To-Do List, designed to increase motivation <br>
               - Tick off items in order so you feel a sense of progression <br>
               - In-browser so you can easily access the same list on desktop, tablet and mobile
             </p>

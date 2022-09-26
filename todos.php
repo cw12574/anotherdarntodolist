@@ -33,14 +33,15 @@ if (isset($_POST["addToDo"])) {
   
     //Insert todo
 
-    $query = "SELECT MAX(ordernumber), id FROM todos";
+    $query = "SELECT MAX(ordernumber), id FROM todos WHERE user_id='{$user_id}'";
     $result = mysqli_query($conn, $query);
 
     while ($row = mysqli_fetch_row($result)) {
       $maxordernumber = '';
-      $maxordernumber = $row[0];
+      
+      $maxordernumber = $row["0"];
+      
     }
-    
     $sql = "INSERT INTO todos(title, user_id, ordernumber) VALUES ('$title', '$user_id', '$maxordernumber'+1)";
     $res =mysqli_query($conn,$sql);
     if ($res) {
