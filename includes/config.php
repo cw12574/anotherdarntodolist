@@ -1,25 +1,6 @@
 <?php
 
 // ================================= //
-// Database connection function //
-// ================================= //
-
-function dbConnect()
-{
-
-    $db_host = "eu-cdbr-west-03.cleardb.net";
-    $db_user = "bea369e2a41905";
-    $db_pass = "408dac43";
-    $db_name = "heroku_93ddc85983617d3";
-
-
-    $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name) or die("database connection error");
-    return $conn;
-}
-
-$conn = dbConnect();
-
-// ================================= //
 // Check whether email is already in use //
 // ================================= //
 
